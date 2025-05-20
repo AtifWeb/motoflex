@@ -13,7 +13,7 @@ export const SearchSpace = () => {
           Whether you’re upgrading your ride or replacing a part, our products
           are built to deliver performance, reliability, and style.
         </p>
-        <div className="grid grid-cols-3 gap-10">
+        <div className="grid grid-cols-3 gap-10 showcase-home">
           <div
             className="h-[400px] relative bg-cover bg-center rounded-[10px] p-6 pb-8 flex flex-col justify-end"
             style={{

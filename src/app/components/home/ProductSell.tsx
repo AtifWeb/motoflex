@@ -17,7 +17,7 @@ export const ProductSell = () => {
           vehicles, premium components, and a passion for the road — all under
           one brand.
         </p>
-        <div className="grid grid-cols-3 gap-10 w-[70%] mx-auto mt-8">
+        <div className="grid grid-cols-3 gap-10  w-[70%] mx-auto mt-8 boxes-home-area">
           <div className="bg-[#504f4f] p-7 rounded-[10px]">
             <div className="h-[60px] w-[60px] bg-[#171616] flex items-center justify-center rounded-[15px] mb-4">
               <TimeToLeaveIcon fontSize="large" className="text-[#fff]" />

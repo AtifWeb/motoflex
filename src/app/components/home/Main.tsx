@@ -1,9 +1,12 @@
+"use client";
 import React from "react";
 import { HeaderHome } from "../HeaderHome";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 export const Main = () => {
+  const router = useRouter();
   return (
     <div
       style={{
@@ -24,7 +27,10 @@ export const Main = () => {
             placeholder="Enter Brand"
           />
 
-          <Button className="h-[50px] absolute right-1 text-[15px] px-8 bg-[#FF4E20]  cursor-pointer rounded-[99px]">
+          <Button
+            onClick={() => router.push("/car")}
+            className="h-[50px] absolute right-1 text-[15px] px-8 bg-[#FF4E20]  cursor-pointer rounded-[99px]"
+          >
             Search
           </Button>
         </div>

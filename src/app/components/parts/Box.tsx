@@ -1,11 +1,16 @@
+"use client";
 import React from "react";
-import NetworkCheckIcon from "@mui/icons-material/NetworkCheck";
-import TimeToLeaveIcon from "@mui/icons-material/TimeToLeave";
-import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
 import LocalGasStationIcon from "@mui/icons-material/LocalGasStation";
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 export const Box = ({ img, heading, price }: any) => {
+  const router = useRouter();
   return (
-    <div className="grid grid-cols-[200px_1fr] mt-4 boxshadow rounded-[10px] bg-[#fff] p-2">
+    <Link
+      href="/spare_parts/123"
+      className="grid component-area grid-cols-[300px_1fr_180px] mt-4 boxshadow rounded-[10px] bg-[#fff] p-2"
+    >
       <img src={img} alt="" className="w-full" />
       <div className="p-3 flex flex-col">
         <h1 className="font-black text-[20px]">{heading}</h1>
@@ -20,6 +25,14 @@ export const Box = ({ img, heading, price }: any) => {
           </div>
         </div>
       </div>
-    </div>
+      <div className="flex flex-col items-center justify-end gap-2  pb-3 pr-3 pl-4 border-l-[1px] border-l-[#00000064]">
+        <Button
+          onClick={() => router.push("/details")}
+          className="h-[50px] font-semibold !text-[16px] mt-7 w-full cursor-pointer rounded-[10px] bg-gradient-to-b from-[#ef7253] to-[#FF4E20]"
+        >
+          Details
+        </Button>
+      </div>
+    </Link>
   );
 };

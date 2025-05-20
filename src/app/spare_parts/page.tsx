@@ -1,6 +1,7 @@
 import { Input } from "@/components/ui/input";
 import { Box } from "../components/parts/Box";
 import { Header } from "../components/Header";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
           Spare Parts
         </h1>
 
-        <div className="grid grid-cols-[300px_1fr] gap-8 mt-8">
+        <div className="grid grid-cols-[300px_1fr] gap-8 mt-8 showcase-main-type">
           <div>
             <div className="bg-[#EAECF0] rounded-[10px] p-5 sticky top-5">
               <h1 className="text-[20px] text-[#000] font-bold">Filters</h1>
@@ -64,6 +65,11 @@ export default function Home() {
                     className="w-full h-[50px] bg-[#fff] rounded-[4px] px-5"
                     placeholder="Material"
                   />
+                </li>
+                <li>
+                  <Button className="h-[50px] w-full rounded-[4px] cursor-pointer">
+                    Filter Parts
+                  </Button>
                 </li>
               </ul>
             </div>

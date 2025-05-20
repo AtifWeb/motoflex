@@ -2,13 +2,21 @@
 @import "tw-animate-css";
 
 * {
-  font-family: "Manrope", sans-serif;
+  font-family: "Manrope", sans-serif !important;
 }
 
 .boxshadow {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-
+.noscroll::-webkit-scrollbar {
+  display: none;
+}
+.data-\[state\=checked\]\:bg-primary {
+  &[data-state="checked"] {
+    background-color: #5e97fa !important;
+    border: none;
+  }
+}
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -124,5 +132,124 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+.max-w-\[1300px\].mx-auto {
+  width: 95% !important;
+}
+@media screen and (max-width: 1150px) {
+  .showcase-main-type,
+  .cart-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .showcase-main-type > div:first-child {
+    display: none;
+  }
+  .checkout-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .checkout-wrapper > div:last-child {
+    display: none;
+  }
+  .checkout-wrapper > div:first-child {
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .boxes-home-area {
+    width: 95% !important;
+  }
+  .w-\[800px\],
+  .w-\[700px\] {
+    width: 95% !important;
+  }
+  .showcase-home {
+    gap: 10px !important;
+  }
+}
+
+@media screen and (max-width: 871px) {
+  .component-area {
+    grid-template-columns: 200px 1fr;
+  }
+  .component-area > img {
+    height: 100%;
+    object-fit: cover;
+  }
+  .component-area > div:last-child {
+    display: none;
+  }
+}
+@media screen and (max-width: 735px) {
+  .boxes-home-area,
+  .showcase-home {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .header > div:first-child {
+    justify-content: space-between;
+  }
+  .header > div:first-child > div:nth-child(2) {
+    display: none;
+  }
+  .header
+    > div:nth-child(2)
+    > div:last-child
+    > div:last-child
+    *:not(:last-child) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .component-area {
+    grid-template-columns: 1fr;
+  }
+  .header > div:nth-child(2) a {
+    font-size: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  button.h-\[50px\] {
+    height: 40px;
+    font-size: 13px;
+  }
+  .header > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) {
+    gap: 0px;
+  }
+  .header > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) a svg {
+    display: none;
+  }
+}
+@media screen and (max-width: 500px) {
+  .boxes-home-area,
+  .showcase-home {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .text-\[50px\] {
+    font-size: 35px;
+    line-height: unset;
+  }
+  .text-\[40px\] {
+    font-size: 25px;
+    line-height: unset;
+  }
+  .text-\[18px\] {
+    font-size: 14px;
+    line-height: unset;
+  }
+  .w-\[150px\] {
+    width: 110px;
+  }
+  button.py-2 {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    padding-block: 5px !important;
+  }
+  button.h-\[45px\] {
+    height: 40px;
   }
 }
