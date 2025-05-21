@@ -166,18 +166,35 @@
   .showcase-home {
     gap: 10px !important;
   }
+  .top_range_area + div {
+    display: flex;
+    overflow: auto;
+  }
+  .top_range_area + div img {
+    width: 100%;
+    height: unset;
+  }
 }
 
 @media screen and (max-width: 871px) {
   .component-area {
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 200px 1fr 100px;
   }
   .component-area > img {
     height: 100%;
     object-fit: cover;
   }
   .component-area > div:last-child {
-    display: none;
+    padding-left: 4px;
+    padding-right: 5px;
+  }
+  .top_range_area + div + div .grid-cols-3 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .top_range_area + div + div + div + div .grid-cols-3 {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 @media screen and (max-width: 735px) {
@@ -198,6 +215,13 @@
     > div:last-child
     *:not(:last-child) {
     display: none;
+  }
+  .top_range_area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .top_range_area button {
+    width: 100%;
   }
 }
 
@@ -221,6 +245,14 @@
   }
   .header > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) a svg {
     display: none;
+  }
+  .component-area > div:last-child {
+    padding-left: 0px;
+    border-left: 0px;
+  }
+  .top_range_area {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }
 @media screen and (max-width: 500px) {

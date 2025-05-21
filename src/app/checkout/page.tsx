@@ -8,11 +8,11 @@ export default function Home() {
       <div className="p-10 h-[100vh] overflow-auto noscroll">
         <h1 className="text-[30px] font-bold">Review & Confirm Your Order</h1>
         <p className="mt-2">
-          You’re just one step away from completing your purchase. Please review
-          your order details carefully before proceeding. Make sure your billing
-          information is accurate and your selected payment method is valid.
-          Once your payment is confirmed, you will receive an order summary via
-          email. If you have any questions or need assistance.
+          You’re just one step away from completing your Order now. Please
+          review your order details carefully before proceeding. Make sure your
+          billing information is accurate and your selected payment method is
+          valid. Once your payment is confirmed, you will receive an order
+          summary via email. If you have any questions or need assistance.
         </p>
 
         <div className="mt-10">

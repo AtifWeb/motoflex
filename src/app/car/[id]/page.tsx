@@ -13,26 +13,13 @@ export default function Home() {
             Jeep COMPASS, 2024
           </h1>
         </div>
-        <div className="flex items-center gap-2 mt-2">
+        <div className="flex items-center gap-2 mt-2 top_range_area">
           <p className="text-[17px] border-[1px] border-[#000] px-3 py-2 rounded-[6px]">
             <span className="font-bold">Vehicle</span> 00000008
           </p>
           <p className="text-[17px] border-[1px] border-[#000] px-3 py-2 rounded-[6px]">
             <span className="font-bold">VIN</span> 3C4NJDAN8RT161099
           </p>
-
-          <Button
-            onClick={() => router.push("/details")}
-            className="h-[40px] font-semibold !text-[16px]  w-[140px] cursor-pointer rounded-[10px] bg-gradient-to-b from-[#ef7253] to-[#FF4E20]"
-          >
-            Add To Cart
-          </Button>
-          <Button
-            onClick={() => router.push("/details")}
-            className="h-[40px] font-semibold !text-[16px]  w-[140px] cursor-pointer rounded-[10px] bg-gradient-to-b from-[#ef7253] to-[#FF4E20]"
-          >
-            Purchase
-          </Button>
         </div>
 
         <div className="grid grid-cols-3 mt-3 gap-2">
@@ -144,6 +131,21 @@ export default function Home() {
             <li>Rain Sensor, Light Sensor</li>
             <li>Radio, CD Player, DVD Player, CD Changer</li>
           </ul>
+        </div>
+
+        <div className="flex items-center gap-2 mt-5">
+          <Button
+            onClick={() => router.push("/cart")}
+            className="h-[40px] font-semibold !text-[16px]  w-[140px] cursor-pointer rounded-[10px] bg-gradient-to-b from-[#ef7253] to-[#FF4E20]"
+          >
+            Add To Cart
+          </Button>
+          <Button
+            onClick={() => router.push("/checkout")}
+            className="h-[40px] font-semibold !text-[16px]  w-[140px] cursor-pointer rounded-[10px] bg-gradient-to-b from-[#ef7253] to-[#FF4E20]"
+          >
+            Order now
+          </Button>
         </div>
       </div>
     </div>
