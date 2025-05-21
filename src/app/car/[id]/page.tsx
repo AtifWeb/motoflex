@@ -3,6 +3,16 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/app/components/Header";
 import { useRouter } from "next/navigation";
 import { Footer } from "@/app/components/Footer";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+// Default theme
+import "@splidejs/react-splide/css";
+
+// or other themes
+import "@splidejs/react-splide/css/skyblue";
+import "@splidejs/react-splide/css/sea-green";
+
+// or only core styles
+import "@splidejs/react-splide/css/core";
 export default function Home() {
   const router = useRouter();
   return (
@@ -22,6 +32,42 @@ export default function Home() {
             <span className="font-bold">VIN</span> 3C4NJDAN8RT161099
           </p>
         </div>
+        <Splide
+          aria-label="My Favorite Images"
+          className="my-10 hidden splide-slide-custom"
+          options={{
+            pagination: false,
+          }}
+        >
+          <SplideSlide>
+            <img
+              src="https://img.plc.auction/medium/img5/60/2025/10/681b7a185f4b11746631192.jpg"
+              alt=""
+              className="w-full object-cover rounded-[10px]"
+            />
+          </SplideSlide>
+          <SplideSlide>
+            <img
+              src="https://img.plc.auction/medium/img5/60/2025/10/681b7a185f4b11746631192.jpg"
+              alt=""
+              className="w-full object-cover rounded-[10px]"
+            />
+          </SplideSlide>
+          <SplideSlide>
+            <img
+              src="https://img.plc.auction/medium/img5/60/2025/10/681b7a2f263141746631215.jpg"
+              alt=""
+              className="w-full object-cover rounded-[10px]"
+            />
+          </SplideSlide>
+          <SplideSlide>
+            <img
+              src="https://img.plc.auction/medium/img5/60/2025/10/681b7a2f8afa81746631215.jpg"
+              alt=""
+              className="w-full object-cover rounded-[10px]"
+            />
+          </SplideSlide>
+        </Splide>
 
         <div className="grid grid-cols-3 mt-3 gap-2">
           <img
@@ -134,7 +180,7 @@ export default function Home() {
           </ul>
         </div>
 
-        <div className="flex items-center gap-2 mt-5">
+        <div className="flex items-center  gap-2 mt-5">
           <Button
             onClick={() => router.push("/cart")}
             className="h-[40px] font-semibold !text-[16px]  w-[140px] cursor-pointer rounded-[10px] bg-gradient-to-b from-[#ef7253] to-[#FF4E20]"
@@ -143,9 +189,9 @@ export default function Home() {
           </Button>
           <Button
             onClick={() => router.push("/checkout")}
-            className="h-[40px] font-semibold !text-[16px]  w-[140px] cursor-pointer rounded-[10px] bg-gradient-to-b from-[#ef7253] to-[#FF4E20]"
+            className="h-[60px] font-semibold !text-[16px]  w-[120px] cursor-pointer rounded-[10px] bg-gradient-to-b from-[#689ffd] to-[#4D8CF5]"
           >
-            Order now
+            Place Order
           </Button>
         </div>
       </div>

@@ -8,11 +8,13 @@ export default function Home() {
       <div className="p-10 h-[100vh] overflow-auto noscroll">
         <h1 className="text-[30px] font-bold">Review & Confirm Your Order</h1>
         <p className="mt-2">
-          You’re just one step away from completing your Order now. Please
-          review your order details carefully before proceeding. Make sure your
-          billing information is accurate and your selected payment method is
-          valid. Once your payment is confirmed, you will receive an order
-          summary via email. If you have any questions or need assistance.
+          Please ensure all your personal information, shipping address, and
+          payment method are accurate and up to date. This information is
+          required to process your order smoothly, deliver it to the correct
+          location, and complete your payment securely. Incomplete or incorrect
+          details may lead to delays or failed transactions. Your data is
+          protected and used solely for order fulfillment and customer service
+          purposes.
         </p>
 
         <div className="mt-10">
@@ -30,6 +32,11 @@ export default function Home() {
               className="w-full h-[60px] bg-[#F7F7F7] text-[16px] rounded-[4px] px-5"
               placeholder="Enter Phone Number"
             />
+          </div>
+        </div>
+        <div className="mt-10">
+          <h1 className="text-[20px] font-bold">Shipping Address</h1>
+          <div className="mt-5 border-[1.5px] border-[#3d81fe86] p-4 rounded-[10px] flex flex-col gap-3">
             <Input
               className="w-full h-[60px] bg-[#F7F7F7] text-[16px] rounded-[4px] px-5"
               placeholder="Enter Address"
@@ -77,6 +84,12 @@ export default function Home() {
                 <img src="/images/union.png" className="w-[45px]" alt="" />
               </div>
             </div>
+            <div className="relative col-span-2">
+              <Input
+                className="w-full h-[60px] bg-[#F7F7F7]  text-[16px] rounded-[4px] px-5"
+                placeholder="Enter Card Number"
+              />
+            </div>
             <Input
               className="w-full h-[60px] bg-[#F7F7F7] text-[16px] rounded-[4px] px-5"
               placeholder="Expiration Date"
@@ -84,7 +97,7 @@ export default function Home() {
             <div className="relative">
               <Input
                 className="w-full h-[60px] bg-[#F7F7F7] text-[16px] rounded-[4px] px-5"
-                placeholder="Security Code"
+                placeholder="CVV"
               />
               <img
                 src="/images/security.svg"
@@ -93,6 +106,15 @@ export default function Home() {
               />
             </div>
           </div>
+        </div>
+        <div className="flex items-center px-5 mt-5  gap-2">
+          <Checkbox id="terms" className="bg-[#F7F7F7] w-[20px] h-[20px]" />
+          <label
+            htmlFor="terms"
+            className="text-sm  leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-[16px] font-semibold"
+          >
+            Same as shipping address
+          </label>
         </div>
 
         <div className="bg-[#F7F7F7] p-4 mt-4 rounded-[10px]">
