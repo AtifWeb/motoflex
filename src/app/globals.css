@@ -154,6 +154,9 @@
   .checkout-wrapper > div:first-child {
     padding: 20px;
   }
+  .countries-operated .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 @media screen and (max-width: 1050px) {
   .boxes-home-area {
@@ -173,6 +176,14 @@
   .top_range_area + div img {
     width: 100%;
     height: unset;
+  }
+  .footer > .grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .footer > .grid > * {
+    padding: 0px;
+    border: 0px;
   }
 }
 
@@ -222,6 +233,12 @@
   }
   .top_range_area button {
     width: 100%;
+  }
+  .header-home-links {
+    display: none;
+  }
+  .countries-operated .grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -283,5 +300,9 @@
   }
   button.h-\[45px\] {
     height: 40px;
+  }
+
+  .footer > div > div:nth-child(2) .grid {
+    grid-template-columns: 1fr 1fr;
   }
 }

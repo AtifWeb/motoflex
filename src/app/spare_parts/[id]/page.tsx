@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Header } from "@/app/components/Header";
 import { useRouter } from "next/navigation";
+import { Footer } from "@/app/components/Footer";
 export default function Home() {
   const router = useRouter();
   return (
@@ -147,6 +148,8 @@ export default function Home() {
           </Button>
         </div>
       </div>
+      {/* footer */}
+      <Footer />
     </div>
   );
 }

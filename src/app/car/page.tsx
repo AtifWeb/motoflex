@@ -2,6 +2,8 @@ import { Input } from "@/components/ui/input";
 import { Box } from "../components/car/Box";
 import { Header } from "../components/Header";
 import { Button } from "@/components/ui/button";
+import { CountriesOperated } from "../components/CountriesOperated";
+import { Footer } from "../components/Footer";
 export default function Home() {
   return (
     <div className="bg-[#F9F9F9]">
@@ -119,7 +121,12 @@ export default function Home() {
             />
           </div>
         </div>
+
+        {/* countries operated */}
+        <CountriesOperated />
       </div>
+      {/* footer */}
+      <Footer />
     </div>
   );
 }

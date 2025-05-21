@@ -9,7 +9,7 @@ export const HeaderHome = () => {
         <img src="/images/logo-black.png" className="w-[150px]" alt="" />
 
         <div className="flex items-center gap-1">
-          <div className="flex items-center gap-5 mr-6">
+          <div className="flex items-center gap-5 mr-6 header-home-links">
             <Link
               href="/car"
               className="text-[#fff]  text-[16px] uppercase font-bold"

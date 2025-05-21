@@ -1,10 +1,12 @@
 "use client";
 import { Box as BikeBox } from "../components/bike/Box";
 import { Box as CarBox } from "../components/car/Box";
+import { CountriesOperated } from "../components/CountriesOperated";
 
 import { Header } from "../components/Header";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { Footer } from "../components/Footer";
 
 export default function Home() {
   const router = useRouter();
@@ -71,6 +73,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+      {/* footer */}
+      <Footer />
     </div>
   );
 }
