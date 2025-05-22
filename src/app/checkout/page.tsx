@@ -1,8 +1,11 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   return (
     <div className="bg-[#fff] grid grid-cols-2 checkout-wrapper">
       <div className="p-10 h-[100vh] overflow-auto noscroll">
@@ -105,16 +108,19 @@ export default function Home() {
                 alt=""
               />
             </div>
+            <div className="flex items-center    mt-1  gap-2">
+              <Checkbox
+                id="terms"
+                className="bg-[#F7F7F7] cursor-pointer w-[20px] h-[20px]"
+              />
+              <label
+                htmlFor="terms"
+                className="text-sm cursor-pointer  leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-[16px] font-medium text-[#00000092]"
+              >
+                Billing is Same as shipping address
+              </label>
+            </div>
           </div>
-        </div>
-        <div className="flex items-center px-5 mt-5  gap-2">
-          <Checkbox id="terms" className="bg-[#F7F7F7] w-[20px] h-[20px]" />
-          <label
-            htmlFor="terms"
-            className="text-sm  leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-[16px] font-semibold"
-          >
-            Same as shipping address
-          </label>
         </div>
 
         <div className="bg-[#F7F7F7] p-4 mt-4 rounded-[10px]">
@@ -146,16 +152,22 @@ export default function Home() {
         </div>
 
         <div className="flex items-center px-5 mt-5  gap-2">
-          <Checkbox id="terms" className="bg-[#F7F7F7] w-[20px] h-[20px]" />
+          <Checkbox
+            id="terms"
+            className="bg-[#F7F7F7] cursor-pointer w-[20px] h-[20px]"
+          />
           <label
             htmlFor="terms"
-            className="text-sm  leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-[16px] font-semibold"
+            className="text-sm  cursor-pointer leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-[16px] font-semibold"
           >
             Pay on arrival option
           </label>
         </div>
 
-        <Button className="h-[60px] font-semibold !text-[16px] mt-7 w-full cursor-pointer rounded-[10px] bg-gradient-to-b from-[#689ffd] to-[#4D8CF5]">
+        <Button
+          onClick={() => router.push("/checkout")}
+          className="h-[60px] font-semibold !text-[16px] mt-7 w-full cursor-pointer rounded-[10px] bg-gradient-to-b from-[#689ffd] to-[#4D8CF5]"
+        >
           Place Order
         </Button>
       </div>

@@ -100,8 +100,6 @@ export default function Home() {
             />
           </div>
         </div>
-        {/* countries operated */}
-        <CountriesOperated />
       </div>
       {/* footer */}
       <Footer />

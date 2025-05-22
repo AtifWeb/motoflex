@@ -19,20 +19,14 @@ export const Header = ({ active }: any) => {
           <img src="/images/logo-white.png" className="w-[150px]" alt="" />
         </Link>
         <div className="flex flex-col gap-2 mt-7">
-          <Link href="/car" className="text-[18px] font-bold uppercase">
-            Cars
+          <Link href="/" className="text-[18px] font-bold uppercase">
+            HOME
           </Link>
-          <Link href="/bike" className="text-[18px] font-bold uppercase">
-            Bikes
+          <Link href="/about" className="text-[18px] font-bold uppercase">
+            about us
           </Link>
-          <Link href="/spare_parts" className="text-[18px] font-bold uppercase">
-            Spare Parts
-          </Link>
-          <Link href="/cart" className="text-[18px] font-bold uppercase">
-            Cart
-          </Link>
-          <Link href="/checkout" className="text-[18px] font-bold uppercase">
-            Checkout
+          <Link href="/contact" className="text-[18px] font-bold uppercase">
+            contact us
           </Link>
         </div>
       </aside>
@@ -59,7 +53,7 @@ export const Header = ({ active }: any) => {
             >
               Sign in
             </Button>
-            <button onClick={() => setmenu(!menu)}>
+            <button className="hidden menu-icon" onClick={() => setmenu(!menu)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

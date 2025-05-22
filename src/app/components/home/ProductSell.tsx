@@ -2,6 +2,7 @@ import React from "react";
 import TimeToLeaveIcon from "@mui/icons-material/TimeToLeave";
 import TwoWheelerIcon from "@mui/icons-material/TwoWheeler";
 import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
+import Link from "next/link";
 export const ProductSell = () => {
   return (
     <div className="bg-[#171616]">
@@ -18,7 +19,7 @@ export const ProductSell = () => {
           one brand.
         </p>
         <div className="grid grid-cols-3 gap-10  w-[70%] mx-auto mt-8 boxes-home-area">
-          <div className="bg-[#504f4f] p-7 rounded-[10px]">
+          <Link href="/car" className="bg-[#504f4f] p-7 rounded-[10px]">
             <div className="h-[60px] w-[60px] bg-[#171616] flex items-center justify-center rounded-[15px] mb-4">
               <TimeToLeaveIcon fontSize="large" className="text-[#fff]" />
             </div>
@@ -27,8 +28,8 @@ export const ProductSell = () => {
               Explore products and suppliers for your business from millions of
               offerings worldwide.
             </p>
-          </div>
-          <div className="bg-[#504f4f] p-7 rounded-[10px]">
+          </Link>
+          <Link href="/bike" className="bg-[#504f4f] p-7 rounded-[10px]">
             <div className="h-[60px] w-[60px] bg-[#171616] flex items-center justify-center rounded-[15px] mb-4">
               <TwoWheelerIcon fontSize="large" className="text-[#fff]" />
             </div>
@@ -37,8 +38,8 @@ export const ProductSell = () => {
               Explore products and suppliers for your business from millions of
               offerings worldwide.
             </p>
-          </div>
-          <div className="bg-[#504f4f] p-7 rounded-[10px]">
+          </Link>
+          <Link href="/spare_parts" className="bg-[#504f4f] p-7 rounded-[10px]">
             <div className="h-[60px] w-[60px] bg-[#171616] flex items-center justify-center rounded-[15px] mb-4">
               <SettingsSuggestIcon fontSize="large" className="text-[#fff]" />
             </div>
@@ -49,7 +50,7 @@ export const ProductSell = () => {
               Explore products and suppliers for your business from millions of
               offerings worldwide.
             </p>
-          </div>
+          </Link>
         </div>
       </div>
     </div>

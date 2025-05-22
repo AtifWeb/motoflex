@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 export const SearchSpace = () => {
   return (
     <div className="bg-[#FFFFFF]">
@@ -27,9 +28,12 @@ export const SearchSpace = () => {
                 unbeatable prices. Buy with confidence and drive home your
                 perfect ride today.
               </p>
-              <Button className="h-[40px] text-[14px] px-5 bg-[#FF4E20] hover:bg-[#fff] hover:text-[#000]  cursor-pointer rounded-[99px]">
+              <Link
+                href="/car"
+                className="h-[40px] flex items-center justify-center text-[#fff] w-[140px] text-[14px] px-5 bg-[#FF4E20] hover:bg-[#fff] hover:text-[#000]  cursor-pointer rounded-[99px]"
+              >
                 Search Cars
-              </Button>
+              </Link>
             </div>
             <div className="h-[400px] rounded-[10px] w-full absolute left-0 top-0 bg-gradient-to-t from-[#000000ed] to-[transparent]"></div>
           </div>
@@ -46,9 +50,13 @@ export const SearchSpace = () => {
                 and rider. Buy your perfect bike today and ride with confidence
                 and freedom.
               </p>
-              <Button className="h-[40px] text-[14px] px-5 bg-[#FF4E20] hover:bg-[#fff] hover:text-[#000]  cursor-pointer rounded-[99px]">
+
+              <Link
+                href="/bike"
+                className="h-[40px] flex items-center justify-center text-[#fff] w-[140px] text-[14px] px-5 bg-[#FF4E20] hover:bg-[#fff] hover:text-[#000]  cursor-pointer rounded-[99px]"
+              >
                 Search Bikes
-              </Button>
+              </Link>
             </div>
             <div className="h-[400px] rounded-[10px] w-full absolute left-0 top-0 bg-gradient-to-t from-[#000000ed] to-[transparent]"></div>
           </div>
@@ -67,9 +75,12 @@ export const SearchSpace = () => {
                 smoothly. Shop now for reliable performance and long-lasting
                 durability.
               </p>
-              <Button className="h-[40px] text-[14px] px-5 bg-[#FF4E20] hover:bg-[#fff] hover:text-[#000]  cursor-pointer rounded-[99px]">
-                Search Cars
-              </Button>
+              <Link
+                href="/spare_parts"
+                className="h-[40px] flex items-center justify-center text-[#fff] w-[140px] text-[14px] px-5 bg-[#FF4E20] hover:bg-[#fff] hover:text-[#000]  cursor-pointer rounded-[99px]"
+              >
+                Spare Parts
+              </Link>
             </div>
             <div className="h-[400px] rounded-[10px] w-full absolute left-0 top-0 bg-gradient-to-t from-[#000000ed] to-[transparent]"></div>
           </div>
