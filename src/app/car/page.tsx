@@ -1,10 +1,16 @@
+"use client";
 import { Input } from "@/components/ui/input";
 import { Box } from "../components/car/Box";
 import { Header } from "../components/Header";
 import { Button } from "@/components/ui/button";
-import { CountriesOperated } from "../components/CountriesOperated";
 import { Footer } from "../components/Footer";
+import { getCars } from "@/api/Car";
+import { useEffect, useState } from "react";
 export default function Home() {
+  const [data, setdata] = useState([]);
+  useEffect(() => {
+    getCars(setdata);
+  }, []);
   return (
     <div className="bg-[#F9F9F9]">
       <Header active={1} />
@@ -98,27 +104,23 @@ export default function Home() {
             </div>
           </div>
           <div>
-            <h1>Found 3 826 617 vehicles</h1>
-            <Box
-              heading="Honda Accord"
-              img="https://img.plc.auction/medium/img5/01/1998/2/219/6ae663c81fdc8d8906d2d53103772ca9/0f1caec24d334fc1ae691b6268afdb20_hrs.jpg"
-              price="$2000"
-            />
-            <Box
-              heading="KIA K5"
-              img="https://img.plc.auction/medium/img5/26/2021/872/125236/5c0e9e4cc0bcdfab18c38d910b82d6ad/977d46e661a0a2be3d57362e49aed67c.jpg"
-              price="$1000"
-            />
-            <Box
-              heading="Mercedes Benz CLA 200"
-              img="https://img.plc.auction/medium/img5/47/2023/28/140517/3c02f90d8079856c9a546ee23d374469/b9b055508241b88e01cf49897fdabdd0.jpg"
-              price="$1450"
-            />
-            <Box
-              heading="Citroen C5"
-              img="https://img.plc.auction/medium/img5/47/2022/54/82576/2fb3250002a670bc636184e60141445c/674d61beaa3df217eb19212cbfbc5956.jpg"
-              price="$1250"
-            />
+            <h1>Found {data.length} vehicles</h1>
+            {data.map((EachData: any) => (
+              <Box
+                data={EachData}
+                id={EachData._id}
+                key={EachData._id}
+                heading={EachData.name}
+                img={EachData.images[0]}
+                price={EachData.price}
+                damage={EachData.damage}
+                driven={EachData.driven}
+                type={EachData.type}
+                geartype={EachData.geartype}
+                year={EachData.year}
+                petroltype={EachData.petroltype}
+              />
+            ))}
           </div>
         </div>
       </div>

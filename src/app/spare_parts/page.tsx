@@ -1,11 +1,16 @@
+"use client";
 import { Input } from "@/components/ui/input";
 import { Box } from "../components/parts/Box";
 import { Header } from "../components/Header";
 import { Button } from "@/components/ui/button";
-import { CountriesOperated } from "../components/CountriesOperated";
 import { Footer } from "../components/Footer";
-
+import { useEffect, useState } from "react";
+import { getParts } from "@/api/Part";
 export default function Home() {
+  const [data, setdata] = useState([]);
+  useEffect(() => {
+    getParts(setdata);
+  }, []);
   return (
     <div className="bg-[#F9F9F9]">
       <Header active={3} />
@@ -77,27 +82,18 @@ export default function Home() {
             </div>
           </div>
           <div>
-            <h1>Found 20 Spare Parts</h1>
-            <Box
-              heading="PQ Passenger Racing Car Wheels Te37 Other Auto"
-              price="$59.99-84.99"
-              img="https://s.alicdn.com/@sc04/kf/H419d171895c1450ea14d6e44676122abS.png_300x300.jpg"
-            />
-            <Box
-              heading="SJC Car Parts for Audi A7 Headlights Car Accessories RS7 Daytime "
-              price="$450.00-500.00"
-              img="https://s.alicdn.com/@sc04/kf/Hb7a5ca9f06fe4a57b1fde6413850bfebH.jpg_300x300.jpg"
-            />
-            <Box
-              heading="Car Parts Secondary Air Smog Pump Fits 2011-2016 Toyotas Tacomas"
-              price="$200.00-225.00"
-              img="https://s.alicdn.com/@sc04/kf/Heb88cb09ed1c4134adaef4da866b77dcD.jpg_300x300.jpg"
-            />
-            <Box
-              heading="Car Parts for Ford Mustang Pedal Accelerator 2-80163, 70108"
-              price="$176.00-219.00"
-              img="https://s.alicdn.com/@sc04/kf/S35c5b87ec44247ebb1e0e56948059df2L.jpg_300x300.jpg"
-            />
+            <h1>Found {data.length} Spare Parts</h1>
+            {data.map((EachData: any) => (
+              <Box
+                data={EachData}
+                id={EachData?._id}
+                key={EachData._id}
+                heading={EachData.name}
+                price={EachData.price}
+                rules={EachData.minorder}
+                img={EachData.images[0]}
+              />
+            ))}
           </div>
         </div>
       </div>

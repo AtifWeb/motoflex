@@ -1,15 +1,29 @@
 "use client";
-import { Box as BikeBox } from "../components/bike/Box";
-import { Box as CarBox } from "../components/car/Box";
-import { CountriesOperated } from "../components/CountriesOperated";
 
+import NetworkCheckIcon from "@mui/icons-material/NetworkCheck";
+import TimeToLeaveIcon from "@mui/icons-material/TimeToLeave";
+import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
+import LocalGasStationIcon from "@mui/icons-material/LocalGasStation";
+import DateRangeIcon from "@mui/icons-material/DateRange";
 import { Header } from "../components/Header";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { Footer } from "../components/Footer";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const router = useRouter();
+
+  const [data, setdata] = useState([]);
+
+  useEffect(() => {
+    const cart = window.sessionStorage.getItem("cart") as string;
+    const cart_parse = JSON.parse(cart);
+
+    setdata(cart_parse);
+    console.log(cart_parse);
+  }, []);
+
   return (
     <div className="bg-[#F9F9F9]">
       <Header />
@@ -19,18 +33,101 @@ export default function Home() {
         <div className="grid grid-cols-[1fr_300px] gap-8 mt-8 cart-grid">
           <div>
             <h1 className="text-[20px] font-bold">Cart Motoflex</h1>
-            <CarBox
-              heading="Honda Accord"
-              price="$2000"
-              img="https://img.plc.auction/medium/img5/01/1998/2/219/6ae663c81fdc8d8906d2d53103772ca9/0f1caec24d334fc1ae691b6268afdb20_hrs.jpg"
-              buy={false}
-            />
-            <BikeBox
-              heading="Suzuki Bike 2025"
-              price="$900"
-              img="https://cache1.pakwheels.com/ad_pictures/1217/suzuki-gs-150-2022-121748711.webp"
-              buy={false}
-            />
+            {data.map((Eachdata: any) => (
+              <div
+                key={Eachdata._id}
+                className="grid component-area grid-cols-[300px_1fr_180px] mt-4 boxshadow rounded-[10px] bg-[#fff] p-2"
+              >
+                <img
+                  src={Eachdata.images[0]}
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
+                <div className="p-3 flex flex-col">
+                  <h1 className="font-black text-[20px]">{Eachdata.name}</h1>
+                  <p className="font-black text-[20px] ">{Eachdata.price}</p>
+                  {Eachdata.year && (
+                    <p className="font-black text-[20px] ">{Eachdata.year}</p>
+                  )}
+
+                  {Eachdata.damage && (
+                    <p className="text-[16px] font-semibold">
+                      {Eachdata.damage}
+                    </p>
+                  )}
+
+                  <div className="flex-1 flex flex-col justify-end">
+                    <div className="grid grid-cols-2 gap-2">
+                      {Eachdata.minorder && (
+                        <p className="text-[16px] font-semibold">
+                          {Eachdata.minorder}
+                        </p>
+                      )}
+
+                      {Eachdata.type && (
+                        <div className="flex items-center gap-1">
+                          <TimeToLeaveIcon
+                            fontSize="small"
+                            className="text-[#FF4E20]"
+                          />
+                          <h1 className="text-[14px]">{Eachdata.type}</h1>
+                        </div>
+                      )}
+
+                      {Eachdata.geartype && (
+                        <div className="flex items-center gap-1">
+                          <SettingsSuggestIcon
+                            fontSize="small"
+                            className="text-[#FF4E20]"
+                          />
+                          <h1 className="text-[14px]">{Eachdata.geartype}</h1>
+                        </div>
+                      )}
+
+                      {Eachdata.petroltype && (
+                        <div className="flex items-center gap-1">
+                          <LocalGasStationIcon
+                            fontSize="small"
+                            className="text-[#FF4E20]"
+                          />
+                          <h1 className="text-[14px]">{Eachdata.petroltype}</h1>
+                        </div>
+                      )}
+
+                      {Eachdata.driven && (
+                        <div className="flex items-center gap-1">
+                          <NetworkCheckIcon
+                            fontSize="small"
+                            className="text-[#FF4E20]"
+                          />
+                          <h1 className="text-[14px]">{Eachdata.driven} km</h1>
+                        </div>
+                      )}
+
+                      {Eachdata.year && (
+                        <div className="flex items-center gap-1">
+                          <DateRangeIcon
+                            fontSize="small"
+                            className="text-[#FF4E20]"
+                          />
+                          <h1 className="text-[14px]">{Eachdata.year}</h1>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center justify-end gap-2  pb-3 pr-3 pl-4 border-l-[1px] border-l-[#00000064]">
+                  <Button
+                    onClick={() => {
+                      router.push("/checkout");
+                    }}
+                    className="h-[50px] flex items-center justify-center text-[#fff] font-semibold !text-[16px]  w-full cursor-pointer rounded-[10px] bg-gradient-to-b from-[#689ffd] to-[#4D8CF5]"
+                  >
+                    Place Order
+                  </Button>
+                </div>
+              </div>
+            ))}
           </div>
           <div>
             <div className="bg-[#EAECF0] rounded-[10px] p-5 sticky top-5">

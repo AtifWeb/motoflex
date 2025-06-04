@@ -1,11 +1,17 @@
+"use client";
 import { Input } from "@/components/ui/input";
 import { Box } from "../components/bike/Box";
 import { Header } from "../components/Header";
 import { Button } from "@/components/ui/button";
 import { CountriesOperated } from "../components/CountriesOperated";
 import { Footer } from "../components/Footer";
-
+import { useEffect, useState } from "react";
+import { getBikes } from "@/api/Bike";
 export default function Home() {
+  const [data, setdata] = useState([]);
+  useEffect(() => {
+    getBikes(setdata);
+  }, []);
   return (
     <div className="bg-[#F9F9F9]">
       <Header active={2} />
@@ -88,27 +94,20 @@ export default function Home() {
             </div>
           </div>
           <div>
-            <h1>Found 20 Bikes</h1>
-            <Box
-              heading="Chinese Bikes Other 2024 for Sale"
-              price="$884.99"
-              img="https://cache1.pakwheels.com/ad_pictures/9984/ducati-other-21-2024-99843651.webp"
-            />
-            <Box
-              heading="Chinese Bikes Other 2025 for Sale"
-              price="$700"
-              img="https://cache4.pakwheels.com/ad_pictures/1147/chinese-bikes-other-2025-114729395.webp"
-            />
-            <Box
-              heading="Sigma Valentino 250 2025 for Sale"
-              price="$900.99"
-              img="https://cache2.pakwheels.com/ad_pictures/1147/chinese-bikes-other-2025-114728939.webp"
-            />
-            <Box
-              heading="Suzuki Bike 2025"
-              price="$900"
-              img="https://cache1.pakwheels.com/ad_pictures/1217/suzuki-gs-150-2022-121748711.webp"
-            />
+            <h1>Found {data.length} Bikes</h1>
+            {data.map((EachData: any) => (
+              <Box
+                data={EachData}
+                key={EachData._id}
+                id={EachData._id}
+                heading={EachData?.name}
+                price={EachData?.price}
+                img={EachData?.images[0]}
+                driven={EachData.driven}
+                year={EachData.year}
+                petroltype={EachData.petroltype}
+              />
+            ))}
           </div>
         </div>
       </div>

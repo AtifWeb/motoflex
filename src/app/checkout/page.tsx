@@ -3,9 +3,65 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useRouter } from "next/navigation";
-
+import { useEffect, useState } from "react";
+import { postOrder } from "@/api/Order";
 export default function Home() {
   const router = useRouter();
+  const [fullname, setfullname] = useState("");
+  const [email, setemail] = useState("");
+  const [phone, setphone] = useState("");
+  const [address, setaddress] = useState("");
+  const [country, setcountry] = useState("");
+  const [state, setstate] = useState("");
+  const [city, setcity] = useState("");
+  const [zipcode, setzipcode] = useState("");
+  const [cardholdername, setcardholdername] = useState("");
+  const [cardnumber, setcardnumber] = useState("");
+  const [expiry_date, setexpiry_date] = useState("");
+  const [cvv, setcvv] = useState("");
+  const [active, setactive] = useState(false);
+  const [data, setdata] = useState([]);
+
+  useEffect(() => {
+    const cart = window.sessionStorage.getItem("cart") as string;
+    const order = window.sessionStorage.getItem("order") as string;
+
+    let combine = [];
+
+    if (cart) {
+      combine = JSON.parse(cart);
+    }
+
+    if (order) {
+      combine = [...combine, JSON.parse(order)];
+    }
+
+    console.log(combine);
+
+    setdata(combine);
+  }, []);
+
+  const placeOrer = (e: any) => {
+    const order_str = window.sessionStorage.getItem("order") as string;
+    const content = {
+      fullname: fullname,
+      email: email,
+      phone: phone,
+      address: address,
+      country: country,
+      state: state,
+      city: city,
+      zipcode: zipcode,
+      cardholdername: cardholdername,
+      cardnumber: cardnumber,
+      expiry_date: expiry_date,
+      cvv: cvv,
+      order: data,
+    };
+    postOrder(content, setactive);
+    console.log(content);
+  };
+
   return (
     <div className="bg-[#fff] grid grid-cols-2 checkout-wrapper">
       <div className="p-10 h-[100vh] overflow-auto noscroll">
@@ -26,14 +82,20 @@ export default function Home() {
             <Input
               className="w-full h-[60px] bg-[#F7F7F7] rounded-[4px] px-5 !text-[15px]"
               placeholder="Enter Full Name"
+              onChange={(e) => setfullname(e.target.value)}
+              value={fullname}
             />
             <Input
               className="w-full h-[60px] bg-[#F7F7F7] text-[16px] rounded-[4px] px-5"
               placeholder="Enter Email"
+              onChange={(e) => setemail(e.target.value)}
+              value={email}
             />
             <Input
               className="w-full h-[60px] bg-[#F7F7F7] text-[16px] rounded-[4px] px-5"
               placeholder="Enter Phone Number"
+              onChange={(e) => setphone(e.target.value)}
+              value={phone}
             />
           </div>
         </div>
@@ -43,24 +105,34 @@ export default function Home() {
             <Input
               className="w-full h-[60px] bg-[#F7F7F7] text-[16px] rounded-[4px] px-5"
               placeholder="Enter Address"
+              onChange={(e) => setaddress(e.target.value)}
+              value={address}
             />
 
             <Input
               className="w-full h-[60px] bg-[#F7F7F7] text-[16px] rounded-[4px] px-5"
               placeholder="Enter Country"
+              onChange={(e) => setcountry(e.target.value)}
+              value={country}
             />
             <Input
               className="w-full h-[60px] bg-[#F7F7F7] text-[16px] rounded-[4px] px-5"
               placeholder="Enter State"
+              onChange={(e) => setstate(e.target.value)}
+              value={state}
             />
 
             <Input
               className="w-full h-[60px] bg-[#F7F7F7] text-[16px] rounded-[4px] px-5"
               placeholder="Enter City"
+              onChange={(e) => setcity(e.target.value)}
+              value={city}
             />
             <Input
               className="w-full h-[60px] bg-[#F7F7F7] text-[16px] rounded-[4px] px-5"
               placeholder="Enter ZIP Code"
+              onChange={(e) => setzipcode(e.target.value)}
+              value={zipcode}
             />
           </div>
         </div>
@@ -79,6 +151,8 @@ export default function Home() {
               <Input
                 className="w-full h-[60px] bg-[#F7F7F7]  text-[16px] rounded-[4px] px-5"
                 placeholder="Enter Cardholder Name"
+                onChange={(e) => setcardholdername(e.target.value)}
+                value={cardholdername}
               />
               <div className="flex items-center absolute right-2 top-[10px]">
                 <img src="/images/master.png" className="w-[40px]" alt="" />
@@ -91,16 +165,22 @@ export default function Home() {
               <Input
                 className="w-full h-[60px] bg-[#F7F7F7]  text-[16px] rounded-[4px] px-5"
                 placeholder="Enter Card Number"
+                onChange={(e) => setcardnumber(e.target.value)}
+                value={cardnumber}
               />
             </div>
             <Input
               className="w-full h-[60px] bg-[#F7F7F7] text-[16px] rounded-[4px] px-5"
               placeholder="Expiration Date"
+              onChange={(e) => setexpiry_date(e.target.value)}
+              value={expiry_date}
             />
             <div className="relative">
               <Input
                 className="w-full h-[60px] bg-[#F7F7F7] text-[16px] rounded-[4px] px-5"
                 placeholder="CVV"
+                onChange={(e) => setcvv(e.target.value)}
+                value={cvv}
               />
               <img
                 src="/images/security.svg"
@@ -124,31 +204,26 @@ export default function Home() {
         </div>
 
         <div className="bg-[#F7F7F7] p-4 mt-4 rounded-[10px]">
-          <div className="mb-3 pb-[20px] border-b-[1px] border-b-[#afb0b2]">
-            <h1 className="text-[13px] mb-2 font-bold">Product One</h1>
-            <div className="flex items-start justify-between">
-              <div>
-                <h1 className="font-bold">Honda Accord</h1>
-                <p className="font-bold">1998</p>
+          {data.map((Eachdata: any, key: any) => (
+            <div
+              key={key}
+              className="mb-3 pb-[20px] border-b-[1px] border-b-[#afb0b2]"
+            >
+              <h1 className="text-[13px] mb-2 font-bold">Product {key + 1}</h1>
+              <div className="flex items-start justify-between">
+                <div>
+                  <h1 className="font-bold">{Eachdata.name}</h1>
+                  <p className="font-bold">1998</p>
+                </div>
+                <p className="font-bold">{Eachdata.price}</p>
               </div>
-              <p className="font-bold">$900</p>
             </div>
-          </div>
-          <div className="mt-2 mb-3 pb-[20px] border-b-[1px] border-b-[#afb0b2]">
-            <h1 className="text-[13px] mb-2 font-bold">Product Two</h1>
-            <div className="flex items-start justify-between">
-              <div>
-                <h1 className="font-bold">Suzuki Bike 2025</h1>
-                <p className="font-bold">1998</p>
-              </div>
-              <p className="font-bold">$900</p>
-            </div>
-          </div>
+          ))}
 
-          <div className="mt-2 flex items-center justify-between">
+          {/* <div className="mt-2 flex items-center justify-between">
             <h1 className="text-[18px] uppercase font-bold">Total Amount</h1>
             <h1 className="font-bold text-[18px]">$2200</h1>
-          </div>
+          </div> */}
         </div>
 
         <div className="flex items-center px-5 mt-5  gap-2">
@@ -165,10 +240,10 @@ export default function Home() {
         </div>
 
         <Button
-          onClick={() => router.push("/checkout")}
+          onClick={placeOrer}
           className="h-[60px] font-semibold !text-[16px] mt-7 w-full cursor-pointer rounded-[10px] bg-gradient-to-b from-[#689ffd] to-[#4D8CF5]"
         >
-          Place Order
+          {active ? "Placing Order...." : "Place Order"}
         </Button>
       </div>
       <div className="h-[100vh] overflow-hidden">
