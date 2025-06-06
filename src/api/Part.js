@@ -2,7 +2,9 @@ import axios from "axios";
 
 export const getParts = async (setdata) => {
   try {
-    const response = await axios.get("http://localhost:8000/api/get/part");
+    const response = await axios.get(
+      "https://backend-moto.vercel.app/api/get/part"
+    );
     console.log(response.data);
     setdata(response.data);
   } catch (error) {
@@ -14,7 +16,7 @@ export const getParts = async (setdata) => {
 export const getPartById = async (id, setdata) => {
   try {
     const response = await axios.get(
-      `http://localhost:8000/api/get/part/id?id=${id}`
+      `https://backend-moto.vercel.app/api/get/part/id?id=${id}`
     );
     console.log(response.data);
 
