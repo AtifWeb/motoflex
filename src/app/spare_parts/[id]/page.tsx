@@ -38,6 +38,7 @@ export default function Home() {
             <span className="font-bold">Price {data?.price}</span>
           </p>
         </div>
+
         <Splide
           aria-label="My Favorite Images"
           className="my-10 hidden splide-slide-custom"

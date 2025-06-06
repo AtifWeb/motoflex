@@ -28,11 +28,12 @@ export default function Home() {
                     htmlFor="#"
                     className="font-bold text-[15px] mb-1 block"
                   >
-                    Model
+                    Car Name
                   </label>
+
                   <Input
                     className="w-full h-[50px] bg-[#fff] rounded-[4px] px-5"
-                    placeholder="Enter Car Model"
+                    placeholder="Enter Car Name"
                   />
                 </li>
                 <li>
@@ -71,18 +72,7 @@ export default function Home() {
                     placeholder="Enter Car Mileage"
                   />
                 </li>
-                <li>
-                  <label
-                    htmlFor="#"
-                    className="font-bold text-[15px] mb-1 block"
-                  >
-                    Color
-                  </label>
-                  <Input
-                    className="w-full h-[50px] bg-[#fff] rounded-[4px] px-5"
-                    placeholder="Enter Car Color"
-                  />
-                </li>
+
                 <li>
                   <label
                     htmlFor="#"

@@ -29,11 +29,11 @@ export default function Home() {
                     htmlFor="#"
                     className="font-bold text-[15px] mb-1 block"
                   >
-                    Location
+                    Name
                   </label>
                   <Input
                     className="w-full h-[50px] bg-[#fff] rounded-[4px] px-5"
-                    placeholder="Enter Location"
+                    placeholder="Enter Bike Name"
                   />
                 </li>
                 <li>
@@ -41,11 +41,11 @@ export default function Home() {
                     htmlFor="#"
                     className="font-bold text-[15px] mb-1 block"
                   >
-                    Search by Keyword
+                    Price
                   </label>
                   <Input
                     className="w-full h-[50px] bg-[#fff] rounded-[4px] px-5"
-                    placeholder="Search by Keyword"
+                    placeholder="Enter Bike Price"
                   />
                 </li>
                 <li>
@@ -65,11 +65,11 @@ export default function Home() {
                     htmlFor="#"
                     className="font-bold text-[15px] mb-1 block"
                   >
-                    Price
+                    Engine Type
                   </label>
                   <Input
                     className="w-full h-[50px] bg-[#fff] rounded-[4px] px-5"
-                    placeholder="Enter Price "
+                    placeholder="4 Stroke/2 Stroke"
                   />
                 </li>
                 <li>
@@ -77,11 +77,11 @@ export default function Home() {
                     htmlFor="#"
                     className="font-bold text-[15px] mb-1 block"
                   >
-                    Registered In
+                    KM's Driven
                   </label>
                   <Input
                     className="w-full h-[50px] bg-[#fff] rounded-[4px] px-5"
-                    placeholder="Enter Price "
+                    placeholder="Enter KM's Driven "
                   />
                 </li>
 

@@ -42,40 +42,17 @@ export default function Home() {
                     htmlFor="#"
                     className="font-bold text-[15px] mb-1 block"
                   >
-                    Supplier Country
+                    Price
                   </label>
                   <Input
                     className="w-full h-[50px] bg-[#fff] rounded-[4px] px-5"
-                    placeholder="Supplier Country"
+                    placeholder="Enter Price"
                   />
                 </li>
-                <li>
-                  <label
-                    htmlFor="#"
-                    className="font-bold text-[15px] mb-1 block"
-                  >
-                    Condition
-                  </label>
-                  <Input
-                    className="w-full h-[50px] bg-[#fff] rounded-[4px] px-5"
-                    placeholder="Enter Condition"
-                  />
-                </li>
-                <li>
-                  <label
-                    htmlFor="#"
-                    className="font-bold text-[15px] mb-1 block"
-                  >
-                    Material
-                  </label>
-                  <Input
-                    className="w-full h-[50px] bg-[#fff] rounded-[4px] px-5"
-                    placeholder="Material"
-                  />
-                </li>
+
                 <li>
                   <Button className="h-[50px] w-full rounded-[4px] cursor-pointer">
-                    Filter Parts
+                    Filter Spare Parts
                   </Button>
                 </li>
               </ul>
