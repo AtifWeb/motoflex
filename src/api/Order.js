@@ -4,7 +4,7 @@ export const postOrder = async (data, setactive) => {
   setactive(true);
   try {
     const response = await axios.post(
-      "https://backend-moto.vercel.app/api/post/order",
+      "http://localhost:8000/api/post/order",
       data
     );
     console.log(response.data);
@@ -18,9 +18,7 @@ export const postOrder = async (data, setactive) => {
 
 export const getOrders = async (setdata) => {
   try {
-    const response = await axios.get(
-      "https://backend-moto.vercel.app/api/get/order"
-    );
+    const response = await axios.get("http://localhost:8000/api/get/order");
     console.log(response.data);
     setdata(response.data);
   } catch (error) {
@@ -32,7 +30,7 @@ export const getOrders = async (setdata) => {
 export const getOrderById = async (id, setdata) => {
   try {
     const response = await axios.get(
-      `https://backend-moto.vercel.app/api/get/order/id?id=${id}`
+      `http://localhost:8000/api/get/order/id?id=${id}`
     );
     console.log(response.data);
 

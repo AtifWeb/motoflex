@@ -116,16 +116,6 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-col items-center justify-end gap-2  pb-3 pr-3 pl-4 border-l-[1px] border-l-[#00000064]">
-                  <Button
-                    onClick={() => {
-                      router.push("/checkout");
-                    }}
-                    className="h-[50px] flex items-center justify-center text-[#fff] font-semibold !text-[16px]  w-full cursor-pointer rounded-[10px] bg-gradient-to-b from-[#689ffd] to-[#4D8CF5]"
-                  >
-                    Place Order
-                  </Button>
-                </div>
               </div>
             ))}
           </div>
@@ -133,33 +123,26 @@ export default function Home() {
             <div className="bg-[#EAECF0] rounded-[10px] p-5 sticky top-5">
               <h1 className="text-[20px] text-[#000] font-bold">Cart Order</h1>
 
-              <div className="mt-6 mb-3 pb-[20px] border-b-[1px] border-b-[#afb0b2]">
-                <h1 className="text-[13px] mb-2 font-bold">Product One</h1>
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h1 className="font-bold">Honda Accord</h1>
-                    <p className="font-bold">1998</p>
+              {data.map((Eachdata: any, key: any) => (
+                <div
+                  key={key}
+                  className="mt-6 mb-3 pb-[20px] border-b-[1px] border-b-[#afb0b2]"
+                >
+                  <h1 className="text-[13px] mb-2 font-bold">
+                    Product {key + 1}
+                  </h1>
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h1 className="font-bold">{Eachdata.name}</h1>
+                      {Eachdata.year && (
+                        <p className="font-bold">{Eachdata.year}</p>
+                      )}
+                    </div>
+                    <p className="font-bold">{Eachdata.price}</p>
                   </div>
-                  <p className="font-bold">$900</p>
                 </div>
-              </div>
-              <div className="mt-2 mb-3 pb-[20px] border-b-[1px] border-b-[#afb0b2]">
-                <h1 className="text-[13px] mb-2 font-bold">Product Two</h1>
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h1 className="font-bold">Suzuki Bike 2025</h1>
-                    <p className="font-bold">1998</p>
-                  </div>
-                  <p className="font-bold">$900</p>
-                </div>
-              </div>
+              ))}
 
-              <div className="mt-2 pb-[20px] flex items-center justify-between">
-                <h1 className="text-[18px] uppercase font-bold">
-                  Total Amount
-                </h1>
-                <h1 className="font-bold text-[18px]">$2200</h1>
-              </div>
               <Button
                 onClick={() => router.push("/checkout")}
                 className="h-[50px] w-full rounded-[4px] cursor-pointer"

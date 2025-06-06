@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { postOrder } from "@/api/Order";
 export default function Home() {
   const router = useRouter();
+  const [payOnArrival, setPayOnArrival] = useState(false);
   const [fullname, setfullname] = useState("");
   const [email, setemail] = useState("");
   const [phone, setphone] = useState("");
@@ -22,6 +23,24 @@ export default function Home() {
   const [active, setactive] = useState(false);
   const [data, setdata] = useState([]);
 
+  const isFormValid = () => {
+    return (
+      fullname &&
+      email &&
+      phone &&
+      address &&
+      country &&
+      state &&
+      city &&
+      zipcode &&
+      payOnArrival &&
+      cardholdername &&
+      cardnumber &&
+      expiry_date &&
+      cvv
+    );
+  };
+
   useEffect(() => {
     const cart = window.sessionStorage.getItem("cart") as string;
     const order = window.sessionStorage.getItem("order") as string;
@@ -33,7 +52,7 @@ export default function Home() {
     }
 
     if (order) {
-      combine = [...combine, JSON.parse(order)];
+      combine = [...combine, ...JSON.parse(order)];
     }
 
     console.log(combine);
@@ -41,8 +60,7 @@ export default function Home() {
     setdata(combine);
   }, []);
 
-  const placeOrer = (e: any) => {
-    const order_str = window.sessionStorage.getItem("order") as string;
+  const placeOrder = (e: any) => {
     const content = {
       fullname: fullname,
       email: email,
@@ -207,7 +225,10 @@ export default function Home() {
           {data.map((Eachdata: any, key: any) => (
             <div
               key={key}
-              className="mb-3 pb-[20px] border-b-[1px] border-b-[#afb0b2]"
+              className={`${
+                key + 1 != data.length &&
+                "mb-3 pb-[20px] border-b-[1px] border-b-[#afb0b2] "
+              }`}
             >
               <h1 className="text-[13px] mb-2 font-bold">Product {key + 1}</h1>
               <div className="flex items-start justify-between">
@@ -230,6 +251,8 @@ export default function Home() {
           <Checkbox
             id="terms"
             className="bg-[#F7F7F7] cursor-pointer w-[20px] h-[20px]"
+            checked={payOnArrival}
+            onCheckedChange={(checked) => setPayOnArrival(checked === true)}
           />
           <label
             htmlFor="terms"
@@ -240,8 +263,11 @@ export default function Home() {
         </div>
 
         <Button
-          onClick={placeOrer}
-          className="h-[60px] font-semibold !text-[16px] mt-7 w-full cursor-pointer rounded-[10px] bg-gradient-to-b from-[#689ffd] to-[#4D8CF5]"
+          onClick={placeOrder}
+          disabled={!isFormValid() || active}
+          className={`h-[60px] font-semibold !text-[16px] mt-7 w-full cursor-pointer rounded-[10px] bg-gradient-to-b from-[#689ffd] to-[#4D8CF5] ${
+            (!isFormValid() || active) && "opacity-50 cursor-not-allowed"
+          }`}
         >
           {active ? "Placing Order...." : "Place Order"}
         </Button>
