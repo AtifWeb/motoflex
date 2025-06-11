@@ -23,6 +23,20 @@ export default function Home() {
   const [active, setactive] = useState(false);
   const [data, setdata] = useState([]);
 
+  const handleExpiryChange = (e: any) => {
+    let value = e.target.value.replace(/\D/g, ""); // Remove all non-digit characters
+
+    if (value.length > 4) {
+      value = value.slice(0, 4); // Limit to 4 digits (MMYY)
+    }
+
+    if (value.length >= 3) {
+      value = value.slice(0, 2) + "/" + value.slice(2);
+    }
+
+    setexpiry_date(value);
+  };
+
   const isFormValid = () => {
     return (
       fullname &&
@@ -172,7 +186,7 @@ export default function Home() {
                 onChange={(e) => setcardholdername(e.target.value)}
                 value={cardholdername}
               />
-              <div className="flex items-center absolute right-2 top-[10px]">
+              <div className="flex items-center absolute right-2 -top-[50px]">
                 <img src="/images/master.png" className="w-[40px]" alt="" />
                 <img src="/images/visa.png" className="w-[30px]" alt="" />
                 <img src="/images/america.png" className="w-[40px]" alt="" />
@@ -190,7 +204,7 @@ export default function Home() {
             <Input
               className="w-full h-[60px] bg-[#F7F7F7] text-[16px] rounded-[4px] px-5"
               placeholder="Expiration Date"
-              onChange={(e) => setexpiry_date(e.target.value)}
+              onChange={handleExpiryChange}
               value={expiry_date}
             />
             <div className="relative">

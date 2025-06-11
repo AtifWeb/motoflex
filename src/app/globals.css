@@ -230,6 +230,9 @@
     grid-template-columns: 1fr;
     gap: 10px;
   }
+  .h-\[250px\] {
+    height: unset;
+  }
   .header > div:first-child {
     justify-content: space-between;
   }

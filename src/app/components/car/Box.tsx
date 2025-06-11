@@ -23,7 +23,7 @@ export const Box = ({
 }: any) => {
   const router = useRouter();
   return (
-    <div className="grid component-area grid-cols-[300px_1fr_180px] mt-4 boxshadow rounded-[10px] bg-[#fff] p-2 h-[250px]">
+    <div className="grid component-area grid-cols-[300px_1fr_180px] mt-4 boxshadow rounded-[10px] bg-[#fff] p-2 h-[250px] ">
       <img src={img} alt="" className="w-full h-full object-cover" />
       <div className="p-3 flex flex-col">
         <h1 className="font-black text-[20px]">{heading}</h1>
